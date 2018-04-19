@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import blogPostReducers from "./blog_post_reducer"
+import blogPostReducers from "./blog_post_reducers"
 
 const createReducer = (reducerFunctions, initialState) =>{
   (state = initialState, action) =>{
