@@ -5,7 +5,19 @@ export const CREATE_POST = "CREATE_POST"
 
 export function getBlogPosts(){
   return async (dispatch) => {
-    const res = await request('http://localhost:5000/blog_posts')
+    const res = await fetch('http://localhost:5000/blog_posts')
+    const json = await res.json()
+
+    dispatch({
+      type: GET_ALL_POST,
+      payload: json.blog_posts
+    })
+  }
+}
+
+export function getSinglePost(id){
+  return async (dispatch) => {
+    const res = await fetch(`http://localhost:5000/blog_posts${id}`)
     const json = await res.json()
 
     dispatch({
