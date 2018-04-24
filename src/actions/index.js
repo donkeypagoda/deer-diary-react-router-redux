@@ -46,3 +46,22 @@ export function deletePost(id){
     })
   }
 }
+
+export function createPost(newPost){
+  return async (dispatch) => {
+    const res = await fetch('http://localhost:5000/blog_posts',
+      {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPost)
+      });
+      const result = await fetch('http://localhost:5000/blog_posts');
+      const {posts} = await result.json();
+
+      this.props.history.push('/')
+    }
+  }
+}
