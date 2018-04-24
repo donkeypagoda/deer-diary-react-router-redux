@@ -29,7 +29,7 @@ export function getSinglePost(id){
 
 export function deletePost(id){
   return async (dispatch) => {
-    await fetch('http://localhost:5000/blog_posts',
+    const res = await fetch('http://localhost:5000/blog_posts',
     {
       method: "DELETE",
       headers: {
@@ -38,6 +38,7 @@ export function deletePost(id){
       },
       body: JSON.stringify({id})
     })
+    const json = res.json
 
     dispatch({
       type: DELETE_POST,
