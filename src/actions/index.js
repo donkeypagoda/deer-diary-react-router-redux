@@ -30,14 +30,14 @@ export function getSinglePost(id){
 export function deletePost(id){
   return async (dispatch) => {
     const res = await fetch('http://localhost:5000/blog_posts',
-    {
-      method: "DELETE",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({id})
-    })
+      {
+        method: "DELETE",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id})
+      })
     const json = res.json
 
     dispatch({
@@ -57,11 +57,11 @@ export function createPost(newPost){
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(newPost)
-      });
-      const result = await fetch('http://localhost:5000/blog_posts');
-      const {posts} = await result.json();
-
-      this.props.history.push('/')
-    }
+      })
+    const json = res.json
+    dispatch({
+      type: CREATE_POST,
+      payload: json.blog_post
+    })
   }
 }
