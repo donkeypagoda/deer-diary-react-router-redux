@@ -22,7 +22,26 @@ export function getSinglePost(id){
 
     dispatch({
       type: GET_SINGLE_POST,
-      payload: json.blog_posts
+      payload: json.blog_post
+    })
+  }
+}
+
+export function deletePost(id){
+  return async (dispatch) => {
+    await fetch('http://localhost:5000/blog_posts',
+    {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id})
+    })
+
+    dispatch({
+      type: DELETE_POST,
+      payload: json.blog_post
     })
   }
 }
