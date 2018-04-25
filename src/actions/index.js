@@ -9,7 +9,7 @@ export function getBlogPosts(){
     const json = await res.json()
 
     dispatch({
-      type: GET_ALL_POST,
+      type: GET_ALL_POSTS,
       payload: json.blog_posts
     })
   }

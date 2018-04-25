@@ -16,5 +16,12 @@ const deletePost = (state, action) => {
 }
 
 const createPost = (state, action) => {
-  
+
+}
+
+export default {
+  [GET_SINGLE_POST]: getSinglePost,
+  [GET_ALL_POSTS]: getAllPosts,
+  [DELETE_POST]: deletePost,
+  [CREATE_POST]: createPost
 }
