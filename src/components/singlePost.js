@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
+import {bindActionCreators} from "redux"
+import {connect} from "react-redux"
+import {getSinglePost, deletePost} from "../actions"
 
 class SinglePost extends Component {
   constructor(){
