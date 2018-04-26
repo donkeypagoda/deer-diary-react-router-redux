@@ -13,26 +13,15 @@ class SinglePost extends Component {
     }
   }
 
-  async componentDidMount(){
-    const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`)
-    const {post} = await res.json()
-
-    this.setState({
-      post: post[0]
-    })
+  componentDidMount(){
+    this.props.getSinglePost(this.props.match.params.id)
   }
 
-  async deletePost(id){
-    await fetch('http://localhost:5000/blog_posts',
-    {
-      method: "DELETE",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({id})
-    });
-    this.props.history.push('/')
+  deletePost(id){
+    this.props.deletePost(id)
+    .then(res =>{
+      this.props.history.push('/')
+    })
 
   }
 
