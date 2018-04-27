@@ -54,6 +54,11 @@ class SinglePost extends Component {
     )
   }
 }
+function mapStateToProps(state, ownProps){
+  return { blogPost: state.blogPosts[ownProps.match.params.id]}
+}
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({getSinglePost, deletePost}, dispatch)
+}
 
-
-export default SinglePost
+export default connect(mapStateToProps, mapDispatchToProps){blogPost}
