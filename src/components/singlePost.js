@@ -26,7 +26,8 @@ class SinglePost extends Component {
   }
 
   render(){
-    if (this.state.post === undefined) return <div>Loading...</div>
+    const { blogPost } = this.props
+    if (!blogPost) return <div>Loading...</div>
     return(
       <div className="container">
         <div className="row lift">
@@ -61,4 +62,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({getSinglePost, deletePost}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps){blogPost}
+export default connect(mapStateToProps, mapDispatchToProps)(blogPost)
