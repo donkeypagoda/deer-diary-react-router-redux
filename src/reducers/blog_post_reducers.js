@@ -15,11 +15,14 @@ const getSinglePost = (state, action) => {
 }
 
 const deletePost = (state, action) => {
+  const {id} = action.payload
+  return _.omit(state, id) 
 
 }
 
 const createPost = (state, action) => {
-
+  const {id} = action.payload
+  return {...state, [id]: action.payload}
 }
 
 export default {

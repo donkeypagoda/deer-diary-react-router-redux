@@ -62,4 +62,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({getSinglePost, deletePost}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(blogPost)
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePost)
